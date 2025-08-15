@@ -2,7 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals.ts'; //import reportWebVitals from './reportWebVitals';
+  try {
+    import('./reportWebVitals').then((module) => {
+      if (module.default) {
+        module.default();
+      }
+    });
+  } catch (error) {
+    console.log('reportWebVitals not available');
+  }
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
